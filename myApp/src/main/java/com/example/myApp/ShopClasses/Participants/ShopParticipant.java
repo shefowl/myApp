@@ -11,8 +11,7 @@ import java.util.Date;
 
 @ToString
 @EqualsAndHashCode
-public abstract class ShopParticipant implements Comparable<ShopParticipant>, Serializable
-{
+public abstract class ShopParticipant implements Comparable<ShopParticipant>, Serializable {
 //    @Getter
 //    @Setter
     protected String userName;
@@ -28,8 +27,7 @@ public abstract class ShopParticipant implements Comparable<ShopParticipant>, Se
     protected Date registrationDate;
     protected static int id = 0;
 
-    public ShopParticipant(String userName, String password)
-    {
+    public ShopParticipant(String userName, String password) {
         Date registrationDate = new Date();
         this.userName = userName;
         this.password = password;
@@ -38,13 +36,13 @@ public abstract class ShopParticipant implements Comparable<ShopParticipant>, Se
     }
 
     @Override
-    public int compareTo(ShopParticipant anotherParticipant)
-    {
+    public int compareTo(ShopParticipant anotherParticipant) {
+        //int accountIdInt = Integer.parseInt(this.accountId);
+        //int anotherAccountIdInt = Integer.parseInt(anotherParticipant.accountId);
         return this.accountId - anotherParticipant.accountId;
     }
 
-    public boolean checkUserName(ShopParticipant anotherParticipant)
-    {
+    public boolean checkUserName(ShopParticipant anotherParticipant) {
         return this.userName == anotherParticipant.userName;
     }
 
@@ -68,5 +66,19 @@ public abstract class ShopParticipant implements Comparable<ShopParticipant>, Se
         return password;
     }
 
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
 
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
 }
